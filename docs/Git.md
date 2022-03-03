@@ -26,4 +26,6 @@
 #### Mandar datos a Github
 
 - git push origin master
+Agradecimientos:
+A Victo Ulises P. por sus gratos comentarios ;D
 
