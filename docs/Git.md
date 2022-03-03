@@ -23,7 +23,7 @@
 - git init
 - git status
 
+#### Mandar datos a Github
 
-
-
+- git push origin master
 
