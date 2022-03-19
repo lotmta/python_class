@@ -9,4 +9,5 @@ print(f"Porcentajes de la secuencia: '{file_content}'")
 print(f"AT = {((file_content.count('A') + file_content.count('T')) / longitud) * 100} %")
 print(f"GC = {((file_content.count('G') + file_content.count('C')) / longitud) * 100} %")
 
+#Cierro el archivo
 file.close()
