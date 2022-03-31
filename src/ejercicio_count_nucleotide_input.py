@@ -1,3 +1,22 @@
+'''
+NAME
+	ejercicio_count_nucleotide_input.py
+    
+VERSION
+    1.0
+    
+AUTHOR
+	Lot Hernandez	
+    
+DESCRIPTION
+	Cuenta los nucleotidos de una secuencia introducida
+    
+CATEGORY
+	Genomic Sequence
+    
+USAGE
+'''
+
 # Se introduce la secuencia
 dna = input("Introduce tu secuencia de DNA:\n")
 

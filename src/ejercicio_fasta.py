@@ -1,3 +1,22 @@
+'''
+NAME
+	ejercicio_fasta.py
+    
+VERSION
+    1.0
+    
+AUTHOR
+	Lot Hernandez	
+    
+DESCRIPTION
+	Le da formato fasta a un archivo con secuencia de DNA
+    
+CATEGORY
+	Genomic Sequence
+    
+USAGE
+'''
+
 # Se abre el archivo que contiene la secuencia
 file_name = "data/dna.txt"
 file = open(file_name)
@@ -10,5 +29,5 @@ SeqID = input("Introduce el identificador de la secuencia: ")
 file_fasta = open("dna.fasta", "w")
 file_fasta.write(f">{SeqID} \n{file_content}")
 
-#Cierro el archivo
+# Cierro el archivo
 file.close()
