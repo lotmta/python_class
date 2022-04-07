@@ -1,22 +1,20 @@
-'''NAME
-       _
-
+'''
+NAME
+	ejercicio_porcentajeGCAT.py
+    
 VERSION
-        1.0
-
+    1.0
+    
 AUTHOR
-        Lot Hernandez
-
+	Lot Hernandez	
+    
 DESCRIPTION
-        _
-
+    Da el porcentaje de GC y AT de una secuencia en un archivo dado
+        
 CATEGORY
-        _
-
+	Genomic Sequence
+    
 USAGE
-        _ 
+'''
 
-ARGUMENTS
 
-   
-SEE ALSO
