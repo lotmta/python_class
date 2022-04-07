@@ -3,7 +3,7 @@ NAME
 	ejercicio_eliminar_adaptador.py
     
 VERSION
-    1.0
+    1.1
     
 AUTHOR
 	Lot Hernandez	
@@ -16,8 +16,6 @@ CATEGORY
     
 USAGE
 '''
-
-from statistics import linear_regression
 
 # Se abre el archivo y se separa por lineas en una lista
 file = open("data/4_input_adapters.txt")
