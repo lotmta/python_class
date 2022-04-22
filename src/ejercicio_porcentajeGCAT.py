@@ -3,18 +3,19 @@ NAME
 	ejercicio_porcentajeGCAT.py
     
 VERSION
-    1.0
+ 	1.0
     
 AUTHOR
 	Lot Hernandez	
     
 DESCRIPTION
-    Da el porcentaje de GC y AT de una secuencia en un archivo dado
+	Da el porcentaje de GC y AT de una secuencia en un archivo dado
         
 CATEGORY
 	Genomic Sequence
     
 USAGE
+	python ejercicio_porcentajeGCAT.py
 '''
 
 
@@ -25,9 +26,12 @@ file_content = file.read().rstrip("\n")
 longitud = len(file_content)
 
 # Se saca el porcentaje de la secuencia y se imprime a pantalla
+AT_content = ((file_content.count('A') + file_content.count('T')) / longitud) * 100
+GC_content = ((file_content.count('G') + file_content.count('C')) / longitud) * 100 
+
 print(f"Porcentajes de la secuencia: '{file_content}'")
-print(f"AT = {((file_content.count('A') + file_content.count('T')) / longitud) * 100} %")
-print(f"GC = {((file_content.count('G') + file_content.count('C')) / longitud) * 100} %")
+print(f"AT = {AT_content} %")
+print(f"GC = {GC_content} %")
 
 # Cierro el archivo
 file.close()
