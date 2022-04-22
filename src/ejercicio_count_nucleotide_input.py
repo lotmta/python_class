@@ -3,7 +3,7 @@ NAME
 	ejercicio_count_nucleotide_input.py
     
 VERSION
-    1.0
+	1.0
     
 AUTHOR
 	Lot Hernandez	
@@ -15,11 +15,21 @@ CATEGORY
 	Genomic Sequence
     
 USAGE
+	python ejercicio_count_nucleotide_input.py
 '''
 
-# Se introduce la secuencia
-dna = input("Introduce tu secuencia de DNA:\n")
+# Obtener la secuencia de ADN del usuario
+dna= input("Introduzca una secuencia de DNA:\n")
 
-# Se cuenta la cantidad de cada nucleotido y se imprime
-print(
-    f"Cantidad de A:{dna.count('A')} C:{dna.count('C')} G:{dna.count('G')} T:{dna.count('T')} ")
+# Realizar conteo de cada base
+freq_A = dna.count('A')
+freq_C = dna.count('C')
+freq_G = dna.count('G')
+freq_T = dna.count('T')
+
+# Imprimir el resultado
+print(f"""La cantidad de A es: {freq_A}
+La cantidad de C es: {freq_C}  
+La cantidad de G es: {freq_G}  
+La cantidad de T es: {freq_T}""")
+
