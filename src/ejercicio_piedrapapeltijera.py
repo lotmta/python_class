@@ -15,29 +15,33 @@ CATEGORY
 	Juego
     
 USAGE
+    python ejercicio_piedrapapeltijera.py
 '''
 
 
 import random
 
-# Pedimos al usuario su input, se usa lower para que se pueda leer la respuesta aunque este en mayusculas
-usuario = input("Elige; piedra, papel o tijeras: ").lower()
+# Pedimos al usuario su input, se usa lower para que se 
+# pueda leer la respuesta aunque este en mayusculas
+usuario = input("Elige; piedra, papel o tijeras:\n").lower()
 
-# La computadora tiene su opcion
-num_aleato = random.randint(1, 3)
+# La computadora hace su eleccion
+opciones = ["piedra","papel","tijeras"]
+num_aleato = random.randint(0, 2)
+computadora = opciones[num_aleato]
 
-if(num_aleato == 1):
-    computadora = "piedra"
+if usuario not in opciones:
+    print("Error! Opción no valida vuelve a intentarlo")
+    exit()
 
-if(num_aleato == 2):
-    computadora = "papel"
+print("La computadora eligio: {}".format(computadora))
+print("El usuario eligio: {}".format(usuario))
 
-if(num_aleato == 3):
-    computadora = "tijeras"
 
 # Empate, usuario es igual a computadora
 if(usuario == computadora):
     print("Empate")
+    
 else:
 
     # Se checan las opciones si el usuario eligio tijeras
