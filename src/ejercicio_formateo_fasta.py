@@ -3,7 +3,7 @@ NAME
 	ejercicio_formateo_fasta.py
     
 VERSION
-    1.0
+    1.1
     
 AUTHOR
 	Lot Hernandez	
@@ -17,16 +17,26 @@ CATEGORY
 USAGE
 '''
 
-# Se abre el archivo y se separa por lineas en una lista
-file = open("data/dna_sequences.txt")
-lineas = file.read()
-lineas = lineas.split("\n")
+
+try:
+    # Se abre el archivo y se separa por lineas en una lista
+    file = open("data/dna_sequences.txt")
+    lineas = file.read()
+    lineas = lineas.split("\n")
+except IOError:
+    print("Error: No se encontro el archivo data/dna_sequences.txt")
+
+# Se cierra el archivo para que no se quede en la memoria
+file.close()
 
 # Se abre el archivo output
 output = open("results/secuencia_formato_fasta.txt", "w")
 
-# Se abre el for donde cada linea va a ser separada por seqid y la secuencia en si, primero se hace un write del seqid con su > y un salto de linea. Despues se hace otro write donde se añade la secuencia y un salto de linea, asegurandonos de que todo este en mayusculas (y si no cambiandolo a mayusculas) y que no tenga --- (borrandolos si es que hay)
+# Se usa un for para separar el seqid de la secuencia y asegurarnos de que la secuencia este en mayusculas y que no tenga ---.
 for linea in lineas:
     seqid = linea.split(" ")
     output.write(f">{seqid[0]}\n")
     output.write(f"{seqid[-1].upper().replace('-','')}\n\n")
+
+# Se cierra el archivo output para que no se quede en la memoria
+output.close

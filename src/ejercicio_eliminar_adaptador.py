@@ -3,7 +3,7 @@ NAME
 	ejercicio_eliminar_adaptador.py
     
 VERSION
-    1.1
+    1.2
     
 AUTHOR
 	Lot Hernandez	
@@ -17,9 +17,13 @@ CATEGORY
 USAGE
 '''
 
-# Se abre el archivo y se separa por lineas en una lista
-file = open("data/4_input_adapters.txt")
-lineas = file.readlines()
+try:
+    # Se abre el archivo y se separa por lineas en una lista
+    file = open("data/4_input_adapters.txt")
+    lineas = file.readlines()
+except IOError:
+    print("Error: No se encontro el archivo data/4_input_adapters.txt")
+    quit()
 
 # Se abre el archivo output
 output = open("results/secuencia_sin_adaptador.txt", "w")
@@ -30,3 +34,6 @@ file.close()
 # Se abre el for donde por cada linea del input se va a escribir esa misma linea en el output pero sin los primeros 14 caracteres
 for linea in lineas:
     output.write(f"{linea[14:]}")
+
+# Se cierra el archivo output para que no se quede en la memoria
+output.close

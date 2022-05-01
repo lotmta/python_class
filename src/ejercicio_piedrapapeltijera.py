@@ -3,7 +3,7 @@ NAME
 	ejercicio_piedrapapeltijera.py
     
 VERSION
-    1.0
+    1.1
     
 AUTHOR
 	Lot Hernandez	
@@ -22,47 +22,45 @@ import random
 
 jugar_denuevo = "si"
 
+opciones = ["piedra", "papel", "tijeras"]
+
 while jugar_denuevo.lower() == "si":
 
     # Pedimos al usuario su input, se usa lower para que se pueda leer la respuesta aunque este en mayusculas
     usuario = input("Elige; piedra, papel o tijeras: ").lower()
+    if(usuario in opciones):
 
-    # La computadora tiene su opcion
-    num_aleato = random.randint(1, 3)
+        # La computadora tiene su opcion
+        computadora = random.choice(opciones)
+        print(f"Computadora elige {computadora}")
 
-    if(num_aleato == 1):
-        computadora = "piedra"
+        # Empate, usuario es igual a computadora
+        if(usuario == computadora):
+            print("Empate")
+        else:
 
-    if(num_aleato == 2):
-        computadora = "papel"
+            # Se checan las opciones si el usuario eligio tijeras
+            if(usuario == "tijeras"):
+                if(computadora == "piedra"):
+                    print("Usuario pierde")
+                else:
+                    print("Usuario gana")
 
-    if(num_aleato == 3):
-        computadora = "tijeras"
+            # Se checan las opciones si el usuario eligio piedra
+            if(usuario == "piedra"):
+                if(computadora == "papel"):
+                    print("Usuario pierde")
+                else:
+                    print("Usuario gana")
 
-    # Empate, usuario es igual a computadora
-    if(usuario == computadora):
-        print("Empate")
+            # Se checan las opciones si el usuario eligio piedra
+            if(usuario == "papel"):
+                if(computadora == "tijeras"):
+                    print("Usuario pierde")
+                else:
+                    print("Usuario gana")
+
     else:
-
-        # Se checan las opciones si el usuario eligio tijeras
-        if(usuario == "tijeras"):
-            if(computadora == "piedra"):
-                print("Usuario pierde")
-            else:
-                print("Usuario gana")
-
-        # Se checan las opciones si el usuario eligio piedra
-        if(usuario == "piedra"):
-            if(computadora == "papel"):
-                print("Usuario pierde")
-            else:
-                print("Usuario gana")
-
-        # Se checan las opciones si el usuario eligio piedra
-        if(usuario == "papel"):
-            if(computadora == "tijeras"):
-                print("Usuario pierde")
-            else:
-                print("Usuario gana")
+        print("Esa opcion no esta disponible")
     # Se le pregunta al usuario si quiere jugar denuevo
     jugar_denuevo = input("Quieres jugar denuevo? (si/no): ")
