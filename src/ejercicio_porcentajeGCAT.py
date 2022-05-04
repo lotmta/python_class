@@ -18,6 +18,9 @@ USAGE
 '''
 
 
+from decimal import DivisionByZero
+
+
 try:
     # Se trata de abrir el archivo, si no existe se cierra el programa
     file_name = input("introduce ruta y nombre de tu archivo: ")
@@ -38,10 +41,13 @@ except ValueError:
     print(f"Error: La secuencia tiene {file_content.count('N')} N's")
     quit()
 
-
-# Se saca el porcentaje de la secuencia y se guarda en variables
-AT = ((file_content.count('A') + file_content.count('T')) / longitud) * 100
-GC = ((file_content.count('G') + file_content.count('C')) / longitud) * 100
+try:
+    # Se saca el porcentaje de la secuencia y se guarda en variables
+    AT = ((file_content.count('A') + file_content.count('T')) / longitud) * 100
+    GC = ((file_content.count('G') + file_content.count('C')) / longitud) * 100
+except ZeroDivisionError:
+    print("Error: Tu archivo esta vacio")
+    quit()
 
 # Se imprime el reslutado
 print(f"Porcentajes de la secuencia: '{file_content}'")
