@@ -3,7 +3,7 @@ NAME
 	ejercicio_porcentajeGCAT.py
     
 VERSION
-    1.1
+    1.2
     
 AUTHOR
 	Lot Hernandez	
@@ -19,11 +19,24 @@ USAGE
 
 
 from decimal import DivisionByZero
+import argparse
 
+parser = argparse.ArgumentParser(
+    description="Da el porcentaje de GC y AT de una secuencia en un archivo dado")
+
+parser.add_argument("-i", "--input",
+                    help="Direccion del archivo con tu secuencia",
+                    required=True)
+
+parser.add_argument("-o", "--output",
+                    help="Nombre y direccion del archivo que se creara con el resultado",
+                    required=False)
+
+args = parser.parse_args()
 
 try:
     # Se trata de abrir el archivo, si no existe se cierra el programa
-    file_name = input("introduce ruta y nombre de tu archivo: ")
+    file_name = args.input
     file = open(file_name)
 except IOError:
     print("Error: No se encontro el archivo")
@@ -49,10 +62,18 @@ except ZeroDivisionError:
     print("Error: Tu archivo esta vacio")
     quit()
 
-# Se imprime el reslutado
-print(f"Porcentajes de la secuencia: '{file_content}'")
-print(f"{AT} %")
-print(f"{GC} %")
+if not args.output:
+    # Se imprime el reslutado
+    print(f"Porcentajes de la secuencia: '{file_content}'")
+    print(f"{AT} %")
+    print(f"{GC} %")
 
-# Cierro el archivo
+else:
+    # Se abre el archivo output
+    output = open(args.output, "w")
+    output.write(f"Porcentajes de la secuencia: '{file_content}'")
+    output.write(f"\n{AT} %")
+    output.write(f"\n{GC} %")
+
+    # Cierro el archivo
 file.close()
