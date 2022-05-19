@@ -12,3 +12,5 @@
   - Cuenta el porcentaje de GC y AT de una secuencia de nucleotidos dada en un archivo .txt
 - ejercicio_piedrapapeltijera
   - Puedes jugar piedra, papel y tijera contra la computadora
+- ejercicio_porcentajeAminoacidos.py
+  - Da el porcentaje de un cierto aminoacido de una secuencia dada
