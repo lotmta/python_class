@@ -3,7 +3,7 @@ NAME
 	ejercicio_porcentajeAminoacidos.py
     
 VERSION
-    1.1
+    1.2
     
 AUTHOR
 	Lot Hernandez	
