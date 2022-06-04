@@ -9,7 +9,7 @@ AUTHOR
 	Lot Hernandez	
     
 DESCRIPTION
-    Modulo: Da el porcentaje de un cierto aminoacido de una secuencia dada
+    Modulo: Da el porcentaje de GC y AT
         
 CATEGORY
 	Genomic Sequence
