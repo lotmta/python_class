@@ -15,6 +15,9 @@ CATEGORY
 	Genomic Sequence
     
 USAGE
+    py count_aminoacids.py -sec [secuencia de aminoacidos]
+        
+
 '''
 
 import argparse
