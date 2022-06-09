@@ -3,7 +3,7 @@ NAME
 	ejercicio_modulo.py
     
 VERSION
-    1.0
+    1.2
     
 AUTHOR
 	Lot Hernandez	
@@ -16,13 +16,13 @@ CATEGORY
     
 USAGE
      
-     ejercicio_modulos.py -sec [secuencia] -a [aminoacido]
-     ejercicio_modulos.py -sec [secuencia] -n       
+     ejercicio_modulos.py -sec [secuencia] -a [aminoacido] ( -v [motif] )
+     ejercicio_modulos.py -sec [secuencia] -n ( -v [motif] )       
      
      Si se va a usar direccion de un archivo con secuencia:
      
-     ejercicio_modulos.py -sec [direccion] -a [aminoacido] -f
-     ejercicio_modulos.py -sec [direccion] -n -f       
+     ejercicio_modulos.py -sec [direccion] -a [aminoacido] -f ( -v [motif] )
+     ejercicio_modulos.py -sec [direccion] -n -f ( -v [motif] )       
      
 
 '''
@@ -30,6 +30,7 @@ USAGE
 import PROTEINtools
 import DNAtools
 import argparse
+import re
 
 parser = argparse.ArgumentParser(
     description="Da el porcentaje de AT y GC de una secuencia o el porcentaje de un cierto aminoacido de una secuencia")
@@ -48,6 +49,9 @@ parser.add_argument("-n", "--nucleotidos",
                     help="Introduce si quieres sacar el porcentaje de AT y GC, no introduzcas nada mas",
                     action="store_true",
                     required=False)
+parser.add_argument("-v", "--verifica",
+                    help='Introduce si quieres verificar que tu secuencia tenga un cierto motif, introduce el motif. Ej. "ATGC" ',
+                    required=False)
 
 
 args = parser.parse_args()
@@ -56,6 +60,7 @@ args = parser.parse_args()
 if (args.aminoacidos and args.nucleotidos):
     print("No puedes usar -a y -n, usa solo el que corresponda a tu tipo de secuencia")
     quit()
+
 
 # Si se uso -f se trata de abrir el archivo
 if(args.file):
@@ -74,6 +79,15 @@ if(args.file):
 else:
 
     sec = args.secuencia
+
+
+# Si se uso -v se checa que el motif este en la secuencia
+if(args.verifica):
+    if(re.search(args.verifica, sec)):
+        print("Se encontro el motif\n")
+    else:
+        print("No se encontro el motif\n")
+
 
 # Si se uso -a se saca el porcentaje de aminoacido
 if(args.aminoacidos):

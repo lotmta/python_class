@@ -25,7 +25,7 @@ USAGE
 # Funcion con la que se saca el porcentaje
 
 
-def paminoacidos(sec, amin=['A', 'I', 'L', 'M', 'F', 'W', 'Y', 'V']):
+def paminoacidos(sec, amin):
     sum = 0
 
     for aminoacido in amin:
