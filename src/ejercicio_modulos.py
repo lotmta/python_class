@@ -1,29 +1,29 @@
 '''
 NAME
 	ejercicio_modulo.py
-    
+
 VERSION
-    1.2
-    
+    1.21
+
 AUTHOR
-	Lot Hernandez	
-    
+	Lot Hernandez
+
 DESCRIPTION
     Da el porcentaje de un cierto aminoacido de una secuencia dada o de GC y AT en una secuencia dada
-        
+
 CATEGORY
 	Genomic Sequence
-    
+
 USAGE
-     
+
      ejercicio_modulos.py -sec [secuencia] -a [aminoacido] ( -v [motif] )
-     ejercicio_modulos.py -sec [secuencia] -n ( -v [motif] )       
-     
+     ejercicio_modulos.py -sec [secuencia] -n ( -v [motif] )
+
      Si se va a usar direccion de un archivo con secuencia:
-     
+
      ejercicio_modulos.py -sec [direccion] -a [aminoacido] -f ( -v [motif] )
-     ejercicio_modulos.py -sec [direccion] -n -f ( -v [motif] )       
-     
+     ejercicio_modulos.py -sec [direccion] -n -f ( -v [motif] )
+
 
 '''
 
@@ -84,9 +84,9 @@ else:
 # Si se uso -v se checa que el motif este en la secuencia
 if(args.verifica):
     if(re.search(args.verifica, sec)):
-        print("Se encontro el motif\n")
+        print("Se encontro el motif")
     else:
-        print("No se encontro el motif\n")
+        print("No se encontro el motif")
 
 
 # Si se uso -a se saca el porcentaje de aminoacido
@@ -103,6 +103,8 @@ if(args.nucleotidos):
     print(f"AT = {res[0]}%\nGC = {res[1]}%")
     quit()
 
-# Si no se uso ninguno se le notifica al usuario
-print("\nDebes usar -a o -n, dependiendo de que quieres que se saque de tu secuencia")
-print("\n-a si es una secuencia de aminoacidos, -n si es una secuencia de nucleotidos\n")
+if(not args.verifica):
+    # Si no se uso ni -n ni -a ni -v se le notifica al usuario
+    print("\nDebes usar -a o -n o -v, dependiendo de que quieres que se saque de tu secuencia")
+    print("\n-a si es una secuencia de aminoacidos, -n si es una secuencia de nucleotidos")
+    print("\n-v si quieres checar si un motif se encuentra en tu secuencia\n")
