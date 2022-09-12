@@ -1,22 +1,20 @@
 '''
 NAME
 	AT_rich.py
-    
+
 VERSION
     1.0
-    
+
 AUTHOR
-	Lot Hernandez	
-    
+	Lot Hernandez
+
 DESCRIPTION
     Busca regiones ricas de DNA de una cierta longitud en una secuencia de DNA dada
-
 CATEGORY
 	Genomic Sequence
-    
+
 USAGE
     py AT_rich.py -f (Direccion) -s (Longitud)
-
 '''
 import argparse
 from email.mime import base
@@ -33,7 +31,7 @@ parser.add_argument("-f", "--file",
                     required=True)
 args = parser.parse_args()
 
-# Funcion que busca bases ambiguas, en caso de que encuentre las imprime y su posicion 
+# Funcion que busca bases ambiguas, en caso de que encuentre las imprime y su posicion
 def validacionsec(sec):
     bases = ""
 
@@ -41,23 +39,23 @@ def validacionsec(sec):
 
         ms = re.finditer("[^ATGC]", sec, re.IGNORECASE)
 
-        
+
         print("Se encontro una base ambigua\n")
-        
+
         for m in ms:
-            
+
             if not (re.search(f"{m.group()}", bases)):
-                
+
                 bases+= m.group()
 
                 vs = re.finditer(f"{m.group()}", sec, re.IGNORECASE)
-                
-                print(f'La base {m.group()} fue encontrada en las posiciones:' )
-                
+
+                print(f'La base {m.group()} fue encontrada en las posiciones: ',end="" )
+
                 for v in vs:
-                    
+
                     print(f'{v.start()}')
-        
+
         quit()
     return()
 
@@ -85,7 +83,7 @@ if re.search("[AT]{"+s+",}", sec, re.IGNORECASE):
     # Si se encuentran, se imprime su posicion
     ms = re.finditer("[AT]{"+s+",}", sec, re.IGNORECASE)
     for m in ms:
-        print(f'Una region alta en AT fue encontrada en la posicion {m.start()}' )
-        
+        print(f'Una region alta en AT fue encontrada en la posicion {m.span()}' )
+
 else:
     print(f"No se encontro niguna region rica en AT de tamaño {s}")
