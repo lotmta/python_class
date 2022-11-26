@@ -1,0 +1,20 @@
+Organism,# of genes naive estimate: (genome size /1000)
+HIV 1,10
+Influenza A virus,14
+Bacteriophage 1,49
+Epstein Barr virus,170
+Buchnera sp.,640
+T. maritima,1900
+S. aureus,2900
+V. cholerae,4000
+B. subtilis,4200
+E. coli,4600
+S. cerevisiae,12000
+C. elegans,100000
+A. thaliana,140000
+D. melanogaster,140000
+F. rubripes,400000
+Z. mays,2300000
+M. musculus,2800000
+H. sapiens,3200000
+T. aestivum (hexaploid),16800000
